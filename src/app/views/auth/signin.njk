@@ -1,0 +1,17 @@
+{% extends '_layout/auth.njk' %}
+
+{% block body %}
+  <div class="auth-wrapper">
+    <form action="/signin" method="POST">
+      <img src="/images/logo.svg" height="42" alt="">
+
+      {% include '_partial/flash.njk' %}
+
+      <input type="email" name="email" placeholder="Email">
+      <input type="password" name="password" placeholder="Password">
+
+      <button type="submit">Entrar</button>
+      <a href="/signup">Criar conta grátis</a>
+    </form>
+  </div>
+{% endblock %}

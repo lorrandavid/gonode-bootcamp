@@ -1,0 +1,29 @@
+{% extends '_layout/default.njk' %}
+
+{% block body %}
+  <div class="main-wrapper">
+    <div class="content">
+      <strong>Olá, {{ user.name }}</strong>
+
+      <p>Essa é sua agenda para hoje:</p>
+
+      {% if appointments.length > 0 %}
+        <ul class="appointments">
+          {% for appointment in appointments %}
+            <li class="appointment">
+              <div>
+                <img src="/files/{{ appointment.customer.avatar }}" alt="Foto de {{ appointment.customer.name }}">
+                <strong>{{ appointment.customer.name }}</strong>
+              </div>
+              <span>{{ appointment.date | date('DD/MM/YYYY HH:mm') }}</span>
+            </li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <p>Nenhum agendamento realizado.</p>
+      {% endif %}
+
+      <a href="/app/logout" class="logout">Sair</a>
+    </div>
+  </div>
+{% endblock %}
